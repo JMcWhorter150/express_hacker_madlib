@@ -24,6 +24,44 @@ app.get(`/:partOfSpeech`, (req, res) => {
     }
 })
 
+app.get(`/:partOfSpeech1/:partOfSpeech2`, (req, res) => {
+    let content = "";
+    let arr = [req.params.partOfSpeech1, req.params.partOfSpeech2];
+    for (let speechType of arr) {
+        switch(speechType) {
+            case "noun":
+                content += `${faker.getNoun()} `;
+                break;
+            case "verb":
+                content += `${faker.getVerb()} `;
+                break;
+            case "adjective":
+                content += `${faker.getAdjective()} `;
+                break;
+        }
+    }
+    res.send(content);
+})
+
+app.get(`/:partOfSpeech1/:partOfSpeech2/:partOfSpeech3`, (req, res) => {
+    let content = "";
+    let arr = [req.params.partOfSpeech1, req.params.partOfSpeech2, req.params.partOfSpeech3];
+    for (let speechType of arr) {
+        switch(speechType) {
+            case "noun":
+                content += `${faker.getNoun()} `;
+                break;
+            case "verb":
+                content += `${faker.getVerb()} `;
+                break;
+            case "adjective":
+                content += `${faker.getAdjective()} `;
+                break;
+        }
+    }
+    res.send(content);
+})
+
 server.listen(PORT, () => {
     console.log(`Listening on PORT ${PORT}`);
 })
